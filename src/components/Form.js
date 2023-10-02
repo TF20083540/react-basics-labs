@@ -55,8 +55,10 @@ const AddTaskForm = (props) => {
         <TextField
           id="outlined-select-priorityLevel"
           select
-          label="Priority"
-          defaultValue="Medium"
+          name="priority"
+          label="Priorit"
+          defaultValue="High"
+          onChange={(event) => props.change(event)}
         >
           {priorityLevels.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -64,7 +66,6 @@ const AddTaskForm = (props) => {
             </MenuItem>
           ))}
         </TextField>
-        
       </div>
       {/*End priority selection*/}
 

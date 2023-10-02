@@ -44,6 +44,13 @@ const Task = (props) => {
                         Due: {props.deadline}
                     </Typography>
                     </Box>
+
+                    {/*Priority code*/}
+                    <Typography component="p" variant="subtitle2" justifyContent="center" color="text.primary">
+                        Priority: {props.priority}
+                    </Typography>
+                    {/*End*/}
+
                     <Typography
                         component="p"
                         variant="subtitle1"

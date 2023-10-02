@@ -14,7 +14,7 @@ function App() {
     
       tasks: [
         
-        {id:1, title:"Dishes", description: "Empty Dishwasher", deadline: "Today", done:false},
+        {id:1, title:"Dishes", description: "Empty Dishwasher", priority: "High", deadline: "Today", done:false},
         {id:2, title:"Laundry", description: "FOld clothes and put away", deadline: "Tomorrow", done:false},
         {id:3, title:"Tidy up", deadline: "Today", done:false},
         {id:4, title: "Raid night tonight", description: "Pandaemonium 1 Savage", deadline: "7pm-10pm", done:false},
@@ -25,7 +25,8 @@ function App() {
   const [formState, setFormState ] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: ""
   });
 
   const doneHandler = (taskIndex) => {
@@ -53,6 +54,9 @@ function App() {
         break;
       case "deadline":
         form.deadline = event.target.value;
+        break;
+      case "priority":
+        form.priority = event.target.value;
         break;
       default:
         form = formState;
@@ -106,6 +110,7 @@ function App() {
             title={task.title}
             description={task.description}
             deadline={task.deadline}
+            priority={task.priority} /*Priority Exercise code*/
             done={task.done}
             key={task.id}
             markDone = {() => doneHandler(index)}
