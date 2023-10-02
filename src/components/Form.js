@@ -2,6 +2,22 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
+
+const priorityLevels = [
+  {
+    value: 'Low',
+    label: 'Low',
+  },
+  {
+    value: 'Medium',
+    label: 'Medium',
+  },
+  {
+    value: 'High',
+    label: 'High',
+  },
+];
 
 const AddTaskForm = (props) => {
 
@@ -33,6 +49,25 @@ const AddTaskForm = (props) => {
             onChange={(event) => props.change(event)}
           />
         </div>
+
+        {/*Start priority selection*/}
+        <div>
+        <TextField
+          id="outlined-select-priorityLevel"
+          select
+          label="Priority"
+          defaultValue="Medium"
+        >
+          {priorityLevels.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        
+      </div>
+      {/*End priority selection*/}
+
         <div>
           <TextField
             name="description"
@@ -44,6 +79,7 @@ const AddTaskForm = (props) => {
             onChange={(event) => props.change(event)}
           />
         </div>
+
         <div>
           <Button 
             type="submit"
@@ -58,6 +94,9 @@ const AddTaskForm = (props) => {
             Add Task
           </Button>
         </div>
+
+
+      
       </Box>
     )
 };
