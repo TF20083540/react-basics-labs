@@ -7,6 +7,25 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+
+
+const chipChangeHandler = (value) => {
+
+    switch(value){
+        case "Low":
+            return "success";
+        case "Medium":
+            return "warning";
+        case "High":
+            return "error"
+        default:
+            return "default";
+        }
+
+  }
+
+
 
 const Task = (props) => {
     
@@ -46,9 +65,18 @@ const Task = (props) => {
                     </Box>
 
                     {/*Priority code*/}
-                    <Typography component="p" variant="subtitle2" justifyContent="center" color="text.primary">
+                    <Typography component="p" variant="subtitle2" align="center" color="text.primary">
                         Priority: {props.priority}
                     </Typography>
+                    {/*End*/}
+
+                    {/*Priority code - Chip version*/}
+                    <Chip 
+                        label={props.priority} 
+                        align="center" 
+                        color={chipChangeHandler(props.priority)}
+                        >
+                    </Chip>
                     {/*End*/}
 
                     <Typography
